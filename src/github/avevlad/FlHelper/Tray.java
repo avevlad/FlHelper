@@ -1,6 +1,7 @@
 package github.avevlad.FlHelper;
 
 import java.awt.*;
+import java.net.URL;
 
 public class Tray {
     public static void main(String name) {
@@ -11,18 +12,14 @@ public class Tray {
         final PopupMenu popup = new PopupMenu();
         final TrayIcon trayIcon;
         final SystemTray tray = SystemTray.getSystemTray();
-
-        Image image = Toolkit.getDefaultToolkit().getImage("D:/icon16.png");
-        trayIcon = new TrayIcon(image, name);
+        URL urlIconFile = Tray.class.getResource("resources/icon.png");
+        Image image = Toolkit.getDefaultToolkit().getImage(urlIconFile);
         MenuItem aboutItem = new MenuItem("Настройки");
         MenuItem exitItem = new MenuItem("Выход");
-
         popup.add(aboutItem);
         popup.addSeparator();
         popup.add(exitItem);
-
-        trayIcon.setPopupMenu(popup);
-
+        trayIcon = new TrayIcon(image, name, popup);
         try {
             tray.add(trayIcon);
         } catch (AWTException e) {
