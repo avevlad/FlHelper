@@ -9,8 +9,8 @@ public class MainGui {
     private JPanel panel;
     private JButton button1;
     private JTextField textField1;
-    public final int frameWidth = 500;
-    public final int frameHeight = 350;
+    public final int frameWidth = 700;
+    public final int frameHeight = 500;
 
 
     public MainGui() {
@@ -22,17 +22,13 @@ public class MainGui {
         });
     }
 
-    public static void main(String[] args, String name) {
+    public static void run(String name, Image image) {
         MainGui mainGui = new MainGui();
         mainGui.setLookAndFeel();
-        mainGui.run(name);
-    }
-
-    public void run(String name) {
-        MainGui mainGui = new MainGui();
         JFrame frame = new JFrame("MainGui");
         frame.setContentPane(mainGui.panel);
         frame.setTitle(name);
+        frame.setIconImage(image);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int locationX = dim.width / 2 - mainGui.frameWidth / 2;
