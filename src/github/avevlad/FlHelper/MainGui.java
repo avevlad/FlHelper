@@ -12,19 +12,13 @@ public class MainGui {
     public final int frameWidth = 700;
     public final int frameHeight = 500;
 
-
     public MainGui() {
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                showMess("11111111111111");
-            }
-        });
+        actionListener();
     }
 
-    public static void run(String name, Image image) {
+    public void run(String name, Image image) {
+        setLookAndFeel();
         MainGui mainGui = new MainGui();
-        mainGui.setLookAndFeel();
         JFrame frame = new JFrame("MainGui");
         frame.setContentPane(mainGui.panel);
         frame.setTitle(name);
@@ -59,4 +53,12 @@ public class MainGui {
         }
     }
 
+    public void actionListener() {
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                showMess("11111111111111");
+            }
+        });
+    }
 }

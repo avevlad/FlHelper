@@ -8,7 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        MainGui.run(main.name, main.getIconImage());
+        MainGui minGui = new MainGui();
+        minGui.run(main.name, main.getIconImage());
         Tray.run(main.name, main.getIconImage());
     }
 
