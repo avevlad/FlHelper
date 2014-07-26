@@ -11,7 +11,7 @@ public class Main {
         MainGui minGui = new MainGui();
         Tray tray = new Tray();
         minGui.run(main.name, main.getIconImage("48"));
-        tray.run(main.name, main.getIconImage("48"));
+        tray.run(main.name, main.getIconImage("16"));
     }
 
     public Image getIconImage(String size) {

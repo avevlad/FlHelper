@@ -1,6 +1,8 @@
 package github.avevlad.FlHelper;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -30,9 +32,15 @@ public class Tray {
     }
 
     public PopupMenu menu() {
+        ActionListener exitListener = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        };
         final PopupMenu popup = new PopupMenu();
         MenuItem aboutItem = new MenuItem("Настройки");
         MenuItem exitItem = new MenuItem("Выход");
+        exitItem.addActionListener(exitListener);
         popup.add(aboutItem);
         popup.addSeparator();
         popup.add(exitItem);

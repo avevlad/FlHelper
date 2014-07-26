@@ -38,14 +38,8 @@ public class MainGui {
     public void setLookAndFeel() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException e) {
-            System.out.println(e);
-        } catch (InstantiationException e) {
-            System.out.println(e);
-        } catch (IllegalAccessException e) {
-            System.out.println(e);
-        } catch (UnsupportedLookAndFeelException e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println("Unable to set LookAndFeel");
         }
     }
 
