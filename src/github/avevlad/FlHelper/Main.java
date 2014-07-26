@@ -8,10 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        MainGui minGui = new MainGui();
-        Tray tray = new Tray();
-        minGui.run(main.name, main.getIconImage("48"));
-        tray.run(main.name, main.getIconImage("16"));
+        MainGui mainGui = new MainGui();
+        mainGui.run(main.name, main.getIconImage("48"));
     }
 
     public Image getIconImage(String size) {

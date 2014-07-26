@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 
 public class MainGui {
     private JPanel panel;
@@ -19,7 +21,8 @@ public class MainGui {
     public void run(String name, Image image) {
         setLookAndFeel();
         MainGui mainGui = new MainGui();
-        JFrame frame = new JFrame("MainGui");
+        Main main = new Main();
+        final JFrame frame = new JFrame("MainGui");
         frame.setContentPane(mainGui.panel);
         frame.setTitle(name);
         frame.setIconImage(image);
@@ -33,6 +36,16 @@ public class MainGui {
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
+        frame.addWindowStateListener(new WindowStateListener() {
+            public void windowStateChanged(WindowEvent e) {
+                if (e.getNewState() == 1) {
+                    frame.setVisible(false);
+                }
+            }
+        });
+
+        Tray tray = new Tray();
+        tray.run(main.name, main.getIconImage("16"), frame);
     }
 
     public void setLookAndFeel() {
