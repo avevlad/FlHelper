@@ -1,13 +1,11 @@
-### Java template
 *.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+Thumbs.db
 *.jar
 *.war
 *.ear
 
 out/
 .idea/
+
+.gradle
+build/
