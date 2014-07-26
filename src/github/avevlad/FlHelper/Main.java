@@ -10,12 +10,12 @@ public class Main {
         Main main = new Main();
         MainGui minGui = new MainGui();
         Tray tray = new Tray();
-        minGui.run(main.name, main.getIconImage());
-        tray.run(main.name, main.getIconImage());
+        minGui.run(main.name, main.getIconImage("48"));
+        tray.run(main.name, main.getIconImage("48"));
     }
 
-    public Image getIconImage() {
-        URL urlIconFile = Tray.class.getResource("resources/icon.png");
+    public Image getIconImage(String size) {
+        URL urlIconFile = Tray.class.getResource("resources/icon" + size + ".png");
         return Toolkit.getDefaultToolkit().getImage(urlIconFile);
     }
 }

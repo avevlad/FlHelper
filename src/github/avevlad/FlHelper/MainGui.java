@@ -35,10 +35,6 @@ public class MainGui {
         frame.setVisible(true);
     }
 
-    public void showMess(String text) {
-        JOptionPane.showMessageDialog(null, text);
-    }
-
     public void setLookAndFeel() {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -57,7 +53,7 @@ public class MainGui {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                showMess("11111111111111");
+                JOptionPane.showMessageDialog(null, "11111111111");
             }
         });
     }

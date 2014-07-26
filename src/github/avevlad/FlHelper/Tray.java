@@ -1,6 +1,8 @@
 package github.avevlad.FlHelper;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Tray {
     public void run(String name, Image image) {
@@ -8,10 +10,18 @@ public class Tray {
             System.out.println("SystemTray is not supported");
             return;
         }
+        MouseAdapter mouseListener = new MouseAdapter() {
+            public void mouseReleased(MouseEvent e) {
+                if (e.getButton() == 1) {
+                    System.out.println("OPEN WINDOW");
+                }
+            }
+        };
         final TrayIcon trayIcon;
         final SystemTray tray = SystemTray.getSystemTray();
         PopupMenu popup = menu();
         trayIcon = new TrayIcon(image, name, popup);
+        trayIcon.addMouseListener(mouseListener);
         try {
             tray.add(trayIcon);
         } catch (AWTException e) {
