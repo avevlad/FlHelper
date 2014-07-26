@@ -9,8 +9,9 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         MainGui minGui = new MainGui();
+        Tray tray = new Tray();
         minGui.run(main.name, main.getIconImage());
-        Tray.run(main.name, main.getIconImage());
+        tray.run(main.name, main.getIconImage());
     }
 
     public Image getIconImage() {
